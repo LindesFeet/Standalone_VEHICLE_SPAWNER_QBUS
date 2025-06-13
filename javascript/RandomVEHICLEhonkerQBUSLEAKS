@@ -1,0 +1,12 @@
+
+setTick(() => {
+    const ped = PlayerPedId();
+    if (IsPedInAnyVehicle(ped, false)) {
+        const veh = GetVehiclePedIsIn(ped, false);
+        if (GetPedInVehicleSeat(veh, -1) === ped) {
+            if (Math.random() < 0.005) {
+                StartVehicleHorn(veh, 100, GetHashKey("NORMAL"), false);
+            }
+        }
+    }
+});
